@@ -1,24 +1,61 @@
-## Accident Detection and Notification using YOLOv8
+# Real-Time Accident Detection System (YOLOv8)
 
-Accidents on the road can have serious consequences, and quick response times are crucial for minimizing harm. This project aims to enhance road safety by automatically detecting accidents through object detection in real-time video streams (also in static images and videos) and sending a notification to concerned authorities. This repository contains the implementation of an accident detection system utilizing the YOLOv8 object detection model.
+Road traffic incidents can result in devastating outcomes, and every second lost in dispatching help can escalate the damage. This system is built to strengthen traffic safety by leveraging YOLOv8 to spot collision events automatically—whether from a live camera feed, a saved video file, or a still image. Once an incident is detected, the platform instantly triggers alerts to notify emergency responders, helping to shrink critical reaction windows.
 
-### Step 1: Setup
+---
 
-- Create a virtual environment and activate it: `python -m venv venv && source venv/bin/activate`
-- Install Prerequisites: `pip install -r requirements.txt`
-- Clone this repository: `git clone https://github.com/viswanathanganesh24/real-time-accident-detection-system.git`
-- `cd` into the directory: `cd Accident-Detection`, then proceed to Step 2
+## Getting Started (Environment & Dependencies)
 
-### Step 2: Detection
+Before running any scripts, set up your local workspace with these preparation steps:
 
-#### Step 2.1: Static Image/Video Detection
+1. **Create and activate** a dedicated Python virtual environment:  
+   ```bash
+   python -m venv venv && source venv/bin/activate
+   ```
 
-- To perform static image/video detection, use the file named `detecting_static.py` available in `ML` folder
-- Run the script: `python detecting_static.py`
-- The script will load the model, perform object detection on the specified image (sample input images available in `inputs` folder), and save the results in the `results` directory.
+2. **Install** all required libraries:  
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-#### Step 2.2: Videostream Detection
+3. **Clone** the project source code from GitHub:  
+   ```bash
+   git clone https://github.com/viswanathanganesh24/real-time-accident-detection-system.git
+   ```
 
-- To perform videostream detection, use the file named `detecting_videostream.py` available in `ML` folder
-- Run the script: `python detecting_videostream.py`
-- The script will load the model, perform object detection on the input videostream (specified by the `stream_url`) by converting it to individual frames.
+   You're now ready to move on to the execution phase below.
+
+---
+
+## Running the Detection Pipelines
+
+The system supports two distinct operational modes, depending on your input source.
+
+### 1. Processing Offline Media (Images & Pre-Recorded Videos)
+
+If you have static snapshots or locally stored video clips to analyze, head over to the `ML` folder and trigger the dedicated script:
+
+```bash
+python detecting_static.py
+```
+
+Once launched, the tool:
+- Loads the pretrained YOLOv8 weights
+- Runs inference on the files placed inside the `inputs` directory
+- Writes the annotated outputs (with bounding boxes and incident labels) neatly into the `results` folder for later review
+
+### 2. Monitoring Live Video Feeds (Streaming Input)
+
+For real-time surveillance scenarios—such as traffic cameras or IP-based streams—use the streaming handler found in the same `ML` directory:
+
+```bash
+python detecting_videostream.py
+```
+
+This script:
+- Initializes the model
+- Connects to the source defined by the `stream_url` variable
+- Continuously dissects the incoming footage into individual frames
+- Performs frame-by-frame object detection to identify accident patterns as they unfold in real time
+
+---
