@@ -46,7 +46,7 @@ Once launched, the tool:
 
 ### 2. Monitoring Live Video Feeds (Streaming Input)
 
-For real-time surveillance scenarios such as traffic cameras or IP-based streams—use the streaming handler found in the same `ML` directory:
+For real-time surveillance scenarios such as traffic cameras or IP-based streams, use the streaming handler found in the same `ML` directory:
 
 ```bash
 python detecting_videostream.py
