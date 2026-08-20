@@ -1,6 +1,6 @@
 # Real-Time Accident Detection System (YOLOv8)
 
-Road traffic incidents can result in devastating outcomes, and every second lost in dispatching help can escalate the damage. This system is built to strengthen traffic safety by leveraging YOLOv8 to spot collision events automatically, whether from a live camera feed, a saved video file, or a still image. Once an incident is detected, the platform instantly triggers alerts to notify emergency responders, helping to shrink critical reaction windows.
+Road traffic incidents can result in devastating outcomes, and every second lost in dispatching help can escalate the damage. This system is built to strengthen traffic safety by leveraging YOLOv8 to spot collision events automatically, whether from a live camera feed, a saved video file, or a still image.
 
 ---
 
